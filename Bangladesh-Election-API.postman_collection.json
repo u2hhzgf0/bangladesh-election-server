@@ -1,0 +1,284 @@
+{
+  "info": {
+    "name": "Bangladesh Election 2026 API",
+    "description": "Complete API collection for Bangladesh Election Server with voting endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Elections",
+      "item": [
+        {
+          "name": "Get Election Insights",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5002/api/elections/insights",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5002",
+              "path": ["api", "elections", "insights"]
+            },
+            "description": "Get election insights and statistics"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Candidates",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5002/api/elections/candidates",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5002",
+              "path": ["api", "elections", "candidates"]
+            },
+            "description": "Get list of candidates"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Countdown",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5002/api/elections/countdown",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5002",
+              "path": ["api", "elections", "countdown"]
+            },
+            "description": "Get election countdown timer"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Votes",
+      "item": [
+        {
+          "name": "Cast Vote - Rice (ধানের শীষ)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"party\": \"rice\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5002/api/votes/cast",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5002",
+              "path": ["api", "votes", "cast"]
+            },
+            "description": "Cast a vote for Rice party (ধানের শীষ)"
+          },
+          "response": []
+        },
+        {
+          "name": "Cast Vote - Scale (দাঁড়িপাল্লা)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"party\": \"scale\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5002/api/votes/cast",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5002",
+              "path": ["api", "votes", "cast"]
+            },
+            "description": "Cast a vote for Scale party (দাঁড়িপাল্লা)"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Vote Results",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5002/api/votes",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5002",
+              "path": ["api", "votes"]
+            },
+            "description": "Get current vote counts"
+          },
+          "response": []
+        },
+        {
+          "name": "Submit Referendum - Yes",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vote\": \"yes\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5002/api/votes/referendum",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5002",
+              "path": ["api", "votes", "referendum"]
+            },
+            "description": "Submit YES vote for referendum"
+          },
+          "response": []
+        },
+        {
+          "name": "Submit Referendum - No",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vote\": \"no\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5002/api/votes/referendum",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5002",
+              "path": ["api", "votes", "referendum"]
+            },
+            "description": "Submit NO vote for referendum"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Referendum Results",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5002/api/votes/referendum",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5002",
+              "path": ["api", "votes", "referendum"]
+            },
+            "description": "Get referendum results"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "NID Verification",
+      "item": [
+        {
+          "name": "Verify NID (Base64)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"image\": \"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD...\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5002/api/nid/verify",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5002",
+              "path": ["api", "nid", "verify"]
+            },
+            "description": "Verify NID using base64 encoded image (for camera capture)"
+          },
+          "response": []
+        },
+        {
+          "name": "Verify NID (File Upload)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "nidImage",
+                  "type": "file",
+                  "src": [],
+                  "description": "Select NID image file"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:5002/api/nid/upload",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5002",
+              "path": ["api", "nid", "upload"]
+            },
+            "description": "Verify NID by uploading image file"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Server Health",
+      "item": [
+        {
+          "name": "Root Endpoint",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5002/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5002",
+              "path": [""]
+            },
+            "description": "Check server status and available endpoints"
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5002",
+      "type": "string"
+    }
+  ]
+}
