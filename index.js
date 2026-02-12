@@ -12,6 +12,7 @@ import nidRoutes from './routes/nidRoutes.js';
 import { startVoteAutoIncrement, getVotes } from './services/voteService.js';
 import { getCountdown } from './services/countdownService.js';
 import { requestLogger, errorLogger } from './middleware/logger.js';
+import { setIO } from './services/socketService.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -28,6 +29,9 @@ const io = new Server(httpServer, {
     methods: ['GET', 'POST']
   }
 });
+
+// Initialize socket service
+setIO(io);
 
 // Middleware
 app.use(cors({
@@ -191,7 +195,3 @@ const startServer = async () => {
 
 // Start the server
 startServer();
-
-export { io };
-
-

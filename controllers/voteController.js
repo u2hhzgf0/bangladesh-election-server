@@ -1,6 +1,6 @@
 import { getVotes, castVote, getReferendum, submitReferendum } from '../services/voteService.js';
 import { getCountdown } from '../services/countdownService.js';
-import { io } from '../index.js';
+import { emitVoteUpdate } from '../services/socketService.js';
 
 export const getCurrentVotes = async (req, res) => {
   try {
@@ -19,6 +19,7 @@ export const getCurrentVotes = async (req, res) => {
 
 export const submitVote = async (req, res) => {
   try {
+    console.log('🗳️  submitVote START');
     const { party } = req.body;
     const ipAddress = req.ip || req.connection.remoteAddress;
 
@@ -47,18 +48,28 @@ export const submitVote = async (req, res) => {
     // Generate random NID for demo (in real app, this would come from NID verification)
     const nidNumber = `VOTE-${Date.now()}-${Math.floor(Math.random() * 10000)}`;
 
+    console.log('🗳️  Calling castVote...');
     const result = await castVote(candidateId, nidNumber, ipAddress);
+    console.log('🗳️  castVote result:', result);
 
     if (!result.success) {
       return res.status(400).json(result);
     }
 
     // Emit vote update via Socket.io
+    console.log('🗳️  Getting votes...');
     const votes = await getVotes();
-    io.emit('votes', votes);
+    console.log('🗳️  Votes:', votes);
 
+    console.log('🗳️  Emitting vote update...');
+    await emitVoteUpdate(votes);
+    console.log('🗳️  Vote update emitted');
+
+    console.log('🗳️  Sending response...');
     res.json(result);
+    console.log('🗳️  submitVote END');
   } catch (error) {
+    console.error('🗳️  submitVote ERROR:', error);
     res.status(500).json({
       success: false,
       message: error.message

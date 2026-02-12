@@ -4,6 +4,7 @@ import { Voter } from '../models/Voter.js';
 
 /**
  * Get current vote counts from database
+ * Returns: { partyA, partyB, totalVotes }
  */
 export const getVotes = async () => {
   try {
@@ -27,30 +28,40 @@ export const getVotes = async () => {
       voteData[vote._id] = vote.count;
     });
 
-    voteData.total = voteData.candidate1 + voteData.candidate2 + voteData.candidate3;
+    // Calculate party totals
+    // partyA (rice): candidate1 + candidate3
+    // partyB (scale): candidate2
+    const partyA = voteData.candidate1 + voteData.candidate3;
+    const partyB = voteData.candidate2;
+    const totalVotes = partyA + partyB;
 
-    return voteData;
+    return {
+      partyA,
+      partyB,
+      totalVotes
+    };
   } catch (error) {
     console.error('Error getting votes:', error);
-    return { candidate1: 0, candidate2: 0, candidate3: 0, total: 0 };
+    return { partyA: 0, partyB: 0, totalVotes: 0 };
   }
 };
 
 /**
  * Cast a vote
+ * Note: Duplicate vote check is temporarily disabled for testing
  */
 export const castVote = async (candidateId, nidNumber = null, ipAddress = null) => {
   try {
-    // Check if this IP address has already voted
-    if (ipAddress) {
-      const existingVote = await Vote.findOne({ ipAddress });
-      if (existingVote) {
-        return {
-          success: false,
-          message: 'আপনি ইতিমধ্যে ভোট দিয়েছেন'
-        };
-      }
-    }
+    // TEMPORARILY DISABLED FOR TESTING - Check if this IP address has already voted
+    // if (ipAddress) {
+    //   const existingVote = await Vote.findOne({ ipAddress });
+    //   if (existingVote) {
+    //     return {
+    //       success: false,
+    //       message: 'আপনি ইতিমধ্যে ভোট দিয়েছেন'
+    //     };
+    //   }
+    // }
 
     // Map candidateId to party
     const candidatePartyMap = {

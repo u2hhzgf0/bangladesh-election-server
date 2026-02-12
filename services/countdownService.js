@@ -1,9 +1,29 @@
-// Election date: January 5, 2026
-const ELECTION_DATE = new Date('2026-01-05T00:00:00');
+/**
+ * Get election end time: Today at 5 PM Bangladesh Time (GMT+6)
+ * If 5 PM has passed, it will be set to tomorrow at 5 PM
+ */
+const getElectionEndTime = () => {
+  // Get current time in Bangladesh (GMT+6)
+  const now = new Date();
+  const bdTime = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Dhaka' }));
+
+  // Set to today at 5 PM (17:00)
+  const electionEnd = new Date(bdTime);
+  electionEnd.setHours(17, 0, 0, 0);
+
+  // If 5 PM has passed, set to tomorrow at 5 PM
+  if (bdTime >= electionEnd) {
+    electionEnd.setDate(electionEnd.getDate() + 1);
+  }
+
+  return electionEnd;
+};
 
 export const getCountdown = () => {
   const now = new Date();
-  const difference = ELECTION_DATE - now;
+  const bdNow = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Dhaka' }));
+  const electionEnd = getElectionEndTime();
+  const difference = electionEnd - bdNow;
 
   if (difference <= 0) {
     return {
@@ -11,7 +31,7 @@ export const getCountdown = () => {
       hours: 0,
       minutes: 0,
       seconds: 0,
-      message: 'Election day has arrived!',
+      message: 'Election has ended!',
       isElectionDay: true
     };
   }
@@ -26,8 +46,8 @@ export const getCountdown = () => {
     hours,
     minutes,
     seconds,
-    message: `Time until election: ${days}d ${hours}h ${minutes}m ${seconds}s`,
+    message: `Time until election ends: ${days}d ${hours}h ${minutes}m ${seconds}s`,
     isElectionDay: false,
-    electionDate: ELECTION_DATE.toISOString()
+    electionDate: electionEnd.toISOString()
   };
 };
