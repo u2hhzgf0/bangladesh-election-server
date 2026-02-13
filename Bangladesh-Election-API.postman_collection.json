@@ -14,7 +14,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:5002/api/elections/insights",
+              "raw": "https://votapi.wixford.com/api/elections/insights",
               "protocol": "http",
               "host": ["localhost"],
               "port": "5002",
@@ -30,7 +30,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:5002/api/elections/candidates",
+              "raw": "https://votapi.wixford.com/api/elections/candidates",
               "protocol": "http",
               "host": ["localhost"],
               "port": "5002",
@@ -46,7 +46,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:5002/api/elections/countdown",
+              "raw": "https://votapi.wixford.com/api/elections/countdown",
               "protocol": "http",
               "host": ["localhost"],
               "port": "5002",
@@ -76,7 +76,7 @@
               "raw": "{\n  \"party\": \"rice\"\n}"
             },
             "url": {
-              "raw": "http://localhost:5002/api/votes/cast",
+              "raw": "https://votapi.wixford.com/api/votes/cast",
               "protocol": "http",
               "host": ["localhost"],
               "port": "5002",
@@ -101,7 +101,7 @@
               "raw": "{\n  \"party\": \"scale\"\n}"
             },
             "url": {
-              "raw": "http://localhost:5002/api/votes/cast",
+              "raw": "https://votapi.wixford.com/api/votes/cast",
               "protocol": "http",
               "host": ["localhost"],
               "port": "5002",
@@ -117,7 +117,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:5002/api/votes",
+              "raw": "https://votapi.wixford.com/api/votes",
               "protocol": "http",
               "host": ["localhost"],
               "port": "5002",
@@ -142,7 +142,7 @@
               "raw": "{\n  \"vote\": \"yes\"\n}"
             },
             "url": {
-              "raw": "http://localhost:5002/api/votes/referendum",
+              "raw": "https://votapi.wixford.com/api/votes/referendum",
               "protocol": "http",
               "host": ["localhost"],
               "port": "5002",
@@ -167,7 +167,7 @@
               "raw": "{\n  \"vote\": \"no\"\n}"
             },
             "url": {
-              "raw": "http://localhost:5002/api/votes/referendum",
+              "raw": "https://votapi.wixford.com/api/votes/referendum",
               "protocol": "http",
               "host": ["localhost"],
               "port": "5002",
@@ -183,7 +183,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:5002/api/votes/referendum",
+              "raw": "https://votapi.wixford.com/api/votes/referendum",
               "protocol": "http",
               "host": ["localhost"],
               "port": "5002",
@@ -213,7 +213,7 @@
               "raw": "{\n  \"image\": \"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD...\"\n}"
             },
             "url": {
-              "raw": "http://localhost:5002/api/nid/verify",
+              "raw": "https://votapi.wixford.com/api/nid/verify",
               "protocol": "http",
               "host": ["localhost"],
               "port": "5002",
@@ -240,7 +240,7 @@
               ]
             },
             "url": {
-              "raw": "http://localhost:5002/api/nid/upload",
+              "raw": "https://votapi.wixford.com/api/nid/upload",
               "protocol": "http",
               "host": ["localhost"],
               "port": "5002",
@@ -261,7 +261,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:5002/",
+              "raw": "https://votapi.wixford.com/",
               "protocol": "http",
               "host": ["localhost"],
               "port": "5002",
@@ -277,7 +277,7 @@
   "variable": [
     {
       "key": "baseUrl",
-      "value": "http://localhost:5002",
+      "value": "https://votapi.wixford.com",
       "type": "string"
     }
   ]

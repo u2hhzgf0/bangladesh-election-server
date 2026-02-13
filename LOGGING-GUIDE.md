@@ -9,7 +9,7 @@ Complete console logging for all API requests and WebSocket connections.
 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 🇧🇩  Bangladesh Election 2026 Server
 ================================================================================
-📡 Server running on http://localhost:5002
+📡 Server running on https://votapi.wixford.com
 🔌 WebSocket ready for real-time updates
 ⏰ Countdown timer active
 📊 Vote counting in progress

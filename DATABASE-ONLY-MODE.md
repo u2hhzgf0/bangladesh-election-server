@@ -52,7 +52,7 @@ Voters: 0
 ✅ MongoDB connected successfully
 📊 Database: bangladesh-election (EMPTY)
 💾 Auto-increment disabled (Production mode - Database only)
-📡 Server running on http://localhost:5002
+📡 Server running on https://votapi.wixford.com
 ```
 
 ## 📊 API Endpoints - All Return Database Data
@@ -138,28 +138,28 @@ Voters: 0
 
 **1. Check Initial State (All Empty):**
 ```bash
-GET http://localhost:5002/api/votes
+GET https://votapi.wixford.com/api/votes
 # Response: { candidate1: 0, candidate2: 0, candidate3: 0, total: 0 }
 
-GET http://localhost:5002/api/elections/insights
+GET https://votapi.wixford.com/api/elections/insights
 # Response: { totalVoters: 0, votedCount: 0, ... }
 ```
 
 **2. Cast First Vote:**
 ```bash
-POST http://localhost:5002/api/votes/cast
+POST https://votapi.wixford.com/api/votes/cast
 Body: { "party": "rice" }
 ```
 
 **3. Check Updated Data:**
 ```bash
-GET http://localhost:5002/api/votes
+GET https://votapi.wixford.com/api/votes
 # Response: { candidate1: 1, candidate2: 0, candidate3: 0, total: 1 }
 
-GET http://localhost:5002/api/elections/insights
+GET https://votapi.wixford.com/api/elections/insights
 # Response: { totalVoters: 1, votedCount: 1, totalVotes: 1, ... }
 
-GET http://localhost:5002/api/elections/candidates
+GET https://votapi.wixford.com/api/elections/candidates
 # Response: [{ id: "candidate1", name: "...", votes: 1 }]
 ```
 

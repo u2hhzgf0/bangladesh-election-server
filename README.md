@@ -284,7 +284,7 @@ GET /api/nid/images/:nidNumber
 ```javascript
 import io from 'socket.io-client';
 
-const socket = io('http://localhost:5002');
+const socket = io('https://votapi.wixford.com');
 ```
 
 ### Events

@@ -69,7 +69,7 @@ You should see:
 ✅ MongoDB connected successfully
 📊 Database: bangladesh-election
 🌐 Host: localhost
-🚀 Server running on http://localhost:5002
+🚀 Server running on https://votapi.wixford.com
 💾 MongoDB connected and ready
 ```
 

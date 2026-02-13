@@ -16,7 +16,7 @@ cd bangladesh-election-server
 npm run dev
 ```
 
-Server should be running on: `http://localhost:5002`
+Server should be running on: `https://votapi.wixford.com`
 
 ## 📋 API Endpoints
 
@@ -24,7 +24,7 @@ Server should be running on: `http://localhost:5002`
 
 #### Cast Vote for Rice (ধানের শীষ)
 ```http
-POST http://localhost:5002/api/votes/cast
+POST https://votapi.wixford.com/api/votes/cast
 Content-Type: application/json
 
 {
@@ -48,7 +48,7 @@ Content-Type: application/json
 
 #### Cast Vote for Scale (দাঁড়িপাল্লা)
 ```http
-POST http://localhost:5002/api/votes/cast
+POST https://votapi.wixford.com/api/votes/cast
 Content-Type: application/json
 
 {
@@ -58,7 +58,7 @@ Content-Type: application/json
 
 #### Get Current Vote Results
 ```http
-GET http://localhost:5002/api/votes
+GET https://votapi.wixford.com/api/votes
 ```
 
 **Response:**
@@ -78,7 +78,7 @@ GET http://localhost:5002/api/votes
 
 #### Submit Referendum Vote (YES)
 ```http
-POST http://localhost:5002/api/votes/referendum
+POST https://votapi.wixford.com/api/votes/referendum
 Content-Type: application/json
 
 {
@@ -88,7 +88,7 @@ Content-Type: application/json
 
 #### Submit Referendum Vote (NO)
 ```http
-POST http://localhost:5002/api/votes/referendum
+POST https://votapi.wixford.com/api/votes/referendum
 Content-Type: application/json
 
 {
@@ -98,14 +98,14 @@ Content-Type: application/json
 
 #### Get Referendum Results
 ```http
-GET http://localhost:5002/api/votes/referendum
+GET https://votapi.wixford.com/api/votes/referendum
 ```
 
 ### 🪪 NID Verification Endpoints
 
 #### Verify NID with Base64 Image
 ```http
-POST http://localhost:5002/api/nid/verify
+POST https://votapi.wixford.com/api/nid/verify
 Content-Type: application/json
 
 {
@@ -127,7 +127,7 @@ Content-Type: application/json
 
 #### Verify NID with File Upload
 ```http
-POST http://localhost:5002/api/nid/upload
+POST https://votapi.wixford.com/api/nid/upload
 Content-Type: multipart/form-data
 
 Key: nidImage
@@ -138,17 +138,17 @@ Value: [Select Image File]
 
 #### Get Election Insights
 ```http
-GET http://localhost:5002/api/elections/insights
+GET https://votapi.wixford.com/api/elections/insights
 ```
 
 #### Get Candidates List
 ```http
-GET http://localhost:5002/api/elections/candidates
+GET https://votapi.wixford.com/api/elections/candidates
 ```
 
 #### Get Countdown Timer
 ```http
-GET http://localhost:5002/api/elections/countdown
+GET https://votapi.wixford.com/api/elections/countdown
 ```
 
 ## 🧪 Testing Workflow
@@ -243,7 +243,7 @@ npm run dev
 
 ### 404 Not Found
 - Check server is running on port 5002
-- Verify URL: `http://localhost:5002`
+- Verify URL: `https://votapi.wixford.com`
 - Check endpoint path is correct
 
 ### CORS Error
@@ -276,5 +276,5 @@ Import the collection and start testing your Bangladesh Election 2026 API!
 ---
 
 **Collection File:** `Bangladesh-Election-API.postman_collection.json`
-**Server URL:** `http://localhost:5002`
+**Server URL:** `https://votapi.wixford.com`
 **Documentation:** See `LOGGING-GUIDE.md` for server logs
